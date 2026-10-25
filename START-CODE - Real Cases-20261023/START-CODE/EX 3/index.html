@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexbox Pricing Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Sono", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .pricing-container{
+        display: flex;
+        gap: 1rem;
+      }
+
+      .pricing-plan{
+        min-width: 250px;
+        max-width: 1150px;
+        border-radius: 1rem;
+        text-align: center;
+        align-content: center;
+        /* border: 1px solid black; */
+        box-shadow: 7px 7px 10px 3px rgb(194, 193, 193);
+      }
+
+      .pricing-plan .plan-title{
+        height: 50px;
+        background: linear-gradient(to top right,rgba(42, 155, 151, 1) 0%, rgba(72, 199, 125, 1) 50%, rgba(166, 255, 0, 1) 100%);
+        border-radius: 1rem 1rem 0 0;
+        text-align: center;
+        align-content: center;
+        color: white;
+        font-size: 20px;
+        min-width: 200px;
+      }
+      
+      .pricing-plan .plan-price{
+        background-image: linear-gradient(
+          to top right,
+          rgba(42, 155, 151, 1) 0%, 
+          rgba(72, 199, 125, 1) 50%, 
+          rgba(166, 255, 0, 1) 100%
+        );
+        background-clip: text;
+        color: transparent;
+        margin: 2rem 0;
+      }
+
+      .pricing-plan .plan-price .price{
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .pricing-plan .plan-price .dollar-sign{
+        /* font-size: rem; */
+        /* background-color: blue; */
+        vertical-align: top;
+        position: relative;
+        top: 0.2rem;
+      }
+
+      .pricing-plan .plan-features{
+        margin-bottom: 1rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        list-style: none;
+      }
+
+      .plan-features li{
+        color: lightgray;
+        font-size: 0.7rem;
+        width: 75%;
+        padding: 5px 0;
+        border-top: 1px solid lightgray;
+      }
+
+      .plan-features li:last-child{
+        border-bottom: 1px solid lightgray;
+      }
+
+      .plan-button{
+        margin: 2rem 0;
+        background-image: linear-gradient(
+          to top right,
+          rgba(42, 155, 151, 1) 0%, 
+          rgba(72, 199, 125, 1) 50%, 
+          rgba(166, 255, 0, 1) 100%
+        );
+        padding: 5px;
+        text-align: center;
+        width: 50%;
+        font-weight: 600;
+        color: white;
+        font-size: .75rem;
+        border: none;
+        border-radius: 20px;
+      }
+
+      .plan-basic .plan-title {
+        background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #2dd4bf 100%);
+      }
+      .plan-basic .plan-price {
+        background-image: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #2dd4bf 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .plan-basic .plan-button {
+        background-image: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #2dd4bf 100%);
+        box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
+      }
+
+      .plan-standard { 
+        border: 1px solid rgba(139, 92, 246, 0.15);
+      }
+      .plan-standard .plan-title {
+        background: linear-gradient(135deg, #4338ca 0%, #6d28d9 50%, #a78bfa 100%);
+      }
+      .plan-standard .plan-price {
+        background-image: linear-gradient(135deg, #4338ca 0%, #6d28d9 50%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .plan-standard .plan-button {
+        background-image: linear-gradient(135deg, #4338ca 0%, #6d28d9 50%, #a78bfa 100%);
+        box-shadow: 0 4px 15px rgba(109, 40, 217, 0.25);
+      }
+
+      .plan-premium .plan-title {
+        background: linear-gradient(135deg, #be123c 0%, #db2777 40%, #fb923c 100%);
+      }
+      .plan-premium .plan-price {
+        background-image: linear-gradient(135deg, #be123c 0%, #db2777 40%, #fb923c 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .plan-premium .plan-button {
+        background-image: linear-gradient(135deg, #be123c 0%, #db2777 40%, #fb923c 100%);
+        box-shadow: 0 4px 15px rgba(219, 39, 119, 0.25);
+      }
+
+      /* Hint: What can you do with a media query and flexbox? */
+      @media screen and (max-width: 850px) {
+
+        body{
+          align-items: normal;
+          padding: 2rem 1rem;
+        }
+
+        .pricing-container {
+          width: 100%;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pricing-container">
+      <div class="pricing-plan plan-basic">
+        <div class="plan-title">Basic</div>
+        <div class="plan-price">
+          <span class="dollar-sign">$</span><span class="price">9.99</span>/month
+        </div>
+        <ul class="plan-features">
+          <li>10GB Storage</li>
+          <li>1 User</li>
+          <li>Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan plan-standard">
+        <div class="plan-title">Standard</div>
+        <div class="plan-price">
+          <span class="dollar-sign">$</span><span class="price">19.99</span>/month
+        </div>
+        <ul class="plan-features">
+          <li>50GB Storage</li>
+          <li>5 Users</li>
+          <li>Phone &amp; Email Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan plan-premium">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">
+          <span class="dollar-sign">
+            $</span><span class="price">49.99</span>/month
+        </div>
+        <ul class="plan-features">
+          <li>100GB Storage</li>
+          <li>10 Users</li>
+          <li>24/7 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+    </div>
+  </body>
+</html>
